@@ -8,6 +8,8 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 """  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import math
+
+
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_sum_cosines()
