@@ -97,23 +97,25 @@ def run_test_better_circles():
     print('--------------------------------------------------')
     print('Testing  better_draw_circles:  See graphics window')
     print('--------------------------------------------------')
-    better_draw_circles()
+    better_draw_circles(10)
+    better_draw_circles(3)
 
 
-def better_draw_circles():
+def better_draw_circles(r):
     window = rg.RoseWindow(400, 400)
 
     center = rg.Point(200, 200)
-    for k in range(50):
-        circle = rg.Circle(center, k + k)
+    for k in range(21):
+        circle = rg.Circle(center, (r * k))
         circle.attach_to(window)
         window.render(0.05)  # Pauses for 0.05 seconds after rendering.
+        print(k)
 
     window.close_on_mouse_click()
 
 
 # ----------------------------------------------------------------------
-# TODO: 3.
+# DONE: 3.
 #   In the previous exercise, you made a MORE POWERFUL version
 #   of draw_circles by introducing a PARAMETER for the amount by
 #   which the radii of the concentric circles increase.
@@ -150,17 +152,19 @@ def run_test_even_better_draw_circles():
     print('--------------------------------------------------')
     print('Testing  even_better_draw_circles:  See graphics window')
     print('--------------------------------------------------')
-    better_draw_circles()
+    even_better_draw_circles(10, 'blue', 6)
 
 
-def even_better_draw_circles():
+def even_better_draw_circles(radius_change_by, outline_color,
+                             number_of_circles):
     window = rg.RoseWindow(400, 400)
 
     center = rg.Point(200, 200)
-    for k in range(100):
-        circle = rg.Circle(center, k + (1/2 * k))
-        circle.outline_color('blue')
+    for k in range(number_of_circles):
+        circle = rg.Circle(center, k * radius_change_by)
+        circle.outline_color = outline_color
         circle.attach_to(window)
+
         window.render(0.05)  # Pauses for 0.05 seconds after rendering.
 
     window.close_on_mouse_click()
